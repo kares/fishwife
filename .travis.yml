@@ -3,20 +3,20 @@ before_install:
   - "gem install rjack-tarpit -v=2.1.2"
   - "gem install bundler -v=1.17.3"
 install: "bundle _1.17.3_ install --jobs=3 --retry=3"
-dist: trusty
+dist: xenial
 matrix:
   include:
-    - rvm: jruby-9.1.17.0
-      jdk: oraclejdk8
+    - rvm: jruby-9.2.8.0
+      jdk: openjdk8
       gemfile: Gemfile.93
-    - rvm: jruby-9.1.17.0
+    - rvm: jruby-9.2.7.0
       jdk: oraclejdk8
+      dist: trusty
+    - rvm: jruby-9.2.8.0
+      jdk: openjdk11
     - rvm: jruby-9.1.17.0
       jdk: openjdk8
-    - rvm: jruby-9.1.17.0
-      jdk: openjdk10
-      dist: xenial
     - rvm: jruby-head
-      jdk: oraclejdk8
+      jdk: openjdk8
   allow_failures:
     - rvm: jruby-head
